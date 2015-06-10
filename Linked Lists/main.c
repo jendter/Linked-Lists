@@ -48,19 +48,6 @@ int main(int argc, const char * argv[]) {
     
     // Part 5
     
-    /*
-    int dataToUse[] = {4, 33, 26, 7, 40};
-    LinkedListItem *item0 = makeLinkedListItem(&dataToUse[0]);
-    LinkedListItem *item1 = makeLinkedListItem(&dataToUse[1]);
-    LinkedListItem *item2 = makeLinkedListItem(&dataToUse[2]);
-    LinkedListItem *item3 = makeLinkedListItem(&dataToUse[3]);
-    LinkedListItem *item4 = makeLinkedListItem(&dataToUse[4]);
-    joinLinkedListItemToNextItem (item0, item1);
-    joinLinkedListItemToNextItem (item1, item2);
-    joinLinkedListItemToNextItem (item2, item3);
-    joinLinkedListItemToNextItem (item3, item4);
-    */
-    
     int numOfLinkedListItems = 5;
     int dataToUse[] = {4, 33, 26, 7, 40};
     LinkedListItem *linkedListItems[numOfLinkedListItems];
@@ -71,18 +58,6 @@ int main(int argc, const char * argv[]) {
         }
     }
     
-    
-//    int dataToUse[] = {4, 33, 26, 7, 40};
-//    int numOfDataValues = 5;
-//    for (int counter = 0; counter < numOfDataValues; counter++) {
-//        makeLinkedListItem(&dataToUse[counter]);
-//    }
-    
-//    int dataToUse[] = {4, 33, 26, 7, 40};
-//    int arraySize = 5; // Calculate this dynamically later
-//    for (int counter = 0; counter < arraySize; counter++) {
-//        makeLinkedListItem
-//    }
     
     // Part 2
     printf("Part 1, 2, 5: \n");
@@ -112,8 +87,7 @@ int main(int argc, const char * argv[]) {
     // Part 7
     printf("Part 7: \n");
     deleteLinkedListItemsStartingWith (&linkedListItems[0]);
-    printf("The new linked list is: ");
-    printLinkedList(linkedListItems[0]);
+    printf("The linked list is deleted.");
     printf("\n\n");
     
     return 0;
@@ -185,9 +159,3 @@ void deleteLinkedListItemsStartingWith (LinkedListItem **item) {
     }
     
 }
-
-//LinkedListItem *makeLinkedListWithData(int *data, ) {
-//    LinkedListItem *newItem = malloc(sizeof(LinkedListItem));
-//    newItem->data = *data;
-//    return newItem;
-//}
