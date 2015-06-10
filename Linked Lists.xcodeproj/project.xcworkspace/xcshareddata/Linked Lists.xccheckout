@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F080C44C-FF1A-4F08-9DF0-CBC67DF6C307</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Linked Lists</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E5EA5EC57A2DD3144A27BDFFB03BB8B479E797FA</key>
+		<string>https://github.com/jendter/Linked-Lists.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Linked Lists.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E5EA5EC57A2DD3144A27BDFFB03BB8B479E797FA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jendter/Linked-Lists.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E5EA5EC57A2DD3144A27BDFFB03BB8B479E797FA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E5EA5EC57A2DD3144A27BDFFB03BB8B479E797FA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Linked%20Lists</string>
+		</dict>
+	</array>
+</dict>
+</plist>

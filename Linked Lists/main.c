@@ -23,6 +23,8 @@ void insertAtEndOfLinkedList (LinkedListItem *firstItem, int *dataToInsert);
 LinkedListItem *makeLinkedListItem(int *data);
 void joinLinkedListItemToNextItem (LinkedListItem *initialItem, LinkedListItem *nextItem);
 void deleteLinkedListItemsStartingWith (LinkedListItem **item);
+LinkedListItem *findPreviousLinkedListItem (LinkedListItem *item, LinkedListItem *itemToFind);
+LinkedListItem *deleteLinkedListItemAndReturnHead (LinkedListItem *initialItem, LinkedListItem **itemToDelete) ;
 
 int main(int argc, const char * argv[]) {
     
@@ -46,7 +48,7 @@ int main(int argc, const char * argv[]) {
 //    item3.nextItem = &item4;
 //    item4.nextItem = NULL;
     
-    // Part 5
+    // Part 6
     
     int numOfLinkedListItems = 5;
     int dataToUse[] = {4, 33, 26, 7, 40};
@@ -58,16 +60,18 @@ int main(int argc, const char * argv[]) {
         }
     }
     
+    LinkedListItem *head = linkedListItems[0];
+    
     
     // Part 2
-    printf("Part 1, 2, 5: \n");
-    printLinkedList(linkedListItems[0]);
+    printf("Part 1, 2, 6: \n");
+    printLinkedList(head);
     printf("\n\n");
     
     // Part 3
     printf("Part 3: \n");
     int dataToFind = 26;
-    LinkedListItem *foundItem = findLinkedListItemWithData (linkedListItems[0], &dataToFind);
+    LinkedListItem *foundItem = findLinkedListItemWithData (head, &dataToFind);
     if (foundItem) {
         printf("Found item data: %d", foundItem->data);
     } else {
@@ -78,15 +82,36 @@ int main(int argc, const char * argv[]) {
     // Part 4
     printf("Part 4: \n");
     int dataToAdd = 45;
-    insertAtEndOfLinkedList(linkedListItems[0], &dataToAdd);
+    insertAtEndOfLinkedList(head, &dataToAdd);
     printf("Added data %d \n", dataToAdd);
     printf("The new linked list is: ");
     printLinkedList(linkedListItems[0]);
     printf("\n\n");
     
+    // Part 5
+    printf("Part 5: \n");
+    printf("The current linked list is: ");
+    printLinkedList(linkedListItems[0]);
+    printf("\n");
+    
+    int deleteItemWithData = 7;
+    LinkedListItem *itemToDelete = findLinkedListItemWithData (head, &deleteItemWithData);
+    if (itemToDelete) {
+        printf("Deleting the item with the value of %d \n", itemToDelete->data);
+        head = deleteLinkedListItemAndReturnHead (head, &itemToDelete);
+        printf("The new linked list is: ");
+        printLinkedList(head);
+        printf("\n\n");
+    } else {
+        printf("Item data %d not found, did not delete any items.", deleteItemWithData);
+    }
+    
+    
+    
+    
     // Part 7
     printf("Part 7: \n");
-    deleteLinkedListItemsStartingWith (&linkedListItems[0]);
+    deleteLinkedListItemsStartingWith (&head);
     printf("The linked list is deleted.");
     printf("\n\n");
     
@@ -147,6 +172,36 @@ LinkedListItem *makeLinkedListItem(int *data) {
 
 void joinLinkedListItemToNextItem (LinkedListItem *initialItem, LinkedListItem *nextItem) {
     initialItem->nextItem = nextItem;
+}
+
+
+LinkedListItem *findPreviousLinkedListItem (LinkedListItem *item, LinkedListItem *itemToFind) {
+    
+    if (item->nextItem == itemToFind) {
+        return item;
+    } else if (item->nextItem) {
+        // Call the function recursively until we find the item
+        return findPreviousLinkedListItem (item->nextItem, itemToFind);
+    }
+    
+    
+    return NULL; // We didn't find the item
+}
+
+LinkedListItem *deleteLinkedListItemAndReturnHead (LinkedListItem *initialItem, LinkedListItem **itemToDelete) {
+    LinkedListItem *head = initialItem;
+    LinkedListItem *newNextItem = (*itemToDelete)->nextItem;
+    
+    if (initialItem == *itemToDelete) {
+        head = newNextItem;
+        free(*itemToDelete);
+    } else {
+        LinkedListItem *previousItem = findPreviousLinkedListItem (initialItem, *itemToDelete);
+        free(*itemToDelete);
+        previousItem->nextItem = newNextItem;
+    }
+    
+    return head;
 }
 
 void deleteLinkedListItemsStartingWith (LinkedListItem **item) {
